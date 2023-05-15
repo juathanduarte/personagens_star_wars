@@ -50,5 +50,3 @@ A aplicação é desenvolvida utilizando as seguintes tecnologias:
 ## Autor
 
 Esta aplicação foi desenvolvida por Juathan Coelho Duarte. Entre em contato pelo e-mail juathanduarte13@gmail.com para mais informações.
-
-# personagens_star_wars# personagens_star_wars
