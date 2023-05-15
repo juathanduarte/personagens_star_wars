@@ -1,7 +1,70 @@
 import React from 'react'
 import { styled } from 'styled-components'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-const CardCharacters = ({ character }) => {
+const CardCharacters = ({ character, loading }) => {
+    if (loading)
+        return (
+            <Card>
+                <Skeleton
+                    width={'95%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+                <Skeleton
+                    width={'75%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+                <Skeleton
+                    width={'55%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+                <Skeleton
+                    width={'45%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+                <Skeleton
+                    width={'85%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+                <Skeleton
+                    width={'25%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+                <Skeleton
+                    width={'65%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+                <Skeleton
+                    width={'35%'}
+                    height={16}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+            </Card>
+        )
     return (
         <Card key={character.name}>
             <h2>{character.name}</h2>
@@ -32,6 +95,9 @@ const Card = styled.li`
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
     padding: 20px;
+    min-height: 210px;
+    justify-content: space-between;
 `

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { styled } from 'styled-components'
-import api from '../services/api'
 
+import api from '../services/api'
 import CardCharacters from '../components/CardCharacters'
 import Button from '../components/Button'
+
+const fakeDataSkeleton = Array.from({ length: 10 }).fill(0)
 
 const List = () => {
     const [charactersLists, setCharactersLists] = useState([])
@@ -45,12 +47,16 @@ const List = () => {
         <div>
             <h1>Personagens de Star Wars</h1>
             <CharactersContainer>
-                {charactersLists.map((character) => (
-                    <CardCharacters
-                        character={character}
-                        key={character.name}
-                    />
-                ))}
+                {loading
+                    ? fakeDataSkeleton.map((item, index) => (
+                          <CardCharacters key={index} loading={true} />
+                      ))
+                    : charactersLists.map((character) => (
+                          <CardCharacters
+                              character={character}
+                              key={character.name}
+                          />
+                      ))}
             </CharactersContainer>
 
             <Button
@@ -75,5 +81,7 @@ export default List
 
 const CharactersContainer = styled.ul`
     display: grid;
+    gap: 20px;
+    margin-inline: 20px;
     grid-template-columns: repeat(5, 1fr);
 `
