@@ -4,17 +4,20 @@ import { styled } from 'styled-components'
 import api from '../services/api'
 import CardCharacters from '../components/CardCharacters'
 import Button from '../components/Button'
+import Input from '../components/Input'
 
 const fakeDataSkeleton = Array.from({ length: 10 }).fill(0)
 
 const List = () => {
     const [charactersLists, setCharactersLists] = useState([])
+    const [filteredCharacters, setFilteredCharacters] = useState([])
     const [page, setPage] = useState(1)
     const [pageInfo, setPageInfo] = useState({
         hasNext: '',
         hasPrevious: '',
     })
     const [loading, setLoading] = useState(false)
+    const [searchCharacter, setSearchCharacter] = useState('')
 
     function handleNextPage() {
         setPage(page + 1)
@@ -43,22 +46,34 @@ const List = () => {
         fetchData()
     }, [page])
 
+    useEffect(() => {
+        const filteredCharacters = charactersLists.filter((character) =>
+            character.name
+                .toLowerCase()
+                .includes(searchCharacter.toLowerCase()),
+        )
+        setFilteredCharacters(filteredCharacters)
+    }, [charactersLists, searchCharacter])
+
     return (
         <div>
-            <h1>Personagens de Star Wars</h1>
+            <Input
+                placeholder="Pesquisar personagem"
+                value={searchCharacter}
+                onChange={(e) => setSearchCharacter(e.target.value)}
+            />
             <CharactersContainer>
                 {loading
                     ? fakeDataSkeleton.map((item, index) => (
                           <CardCharacters key={index} loading={true} />
                       ))
-                    : charactersLists.map((character) => (
+                    : filteredCharacters.map((character) => (
                           <CardCharacters
                               character={character}
                               key={character.name}
                           />
                       ))}
             </CharactersContainer>
-
             <Button
                 onClick={handleNextPage}
                 disabled={!pageInfo.hasNext || loading}
@@ -71,7 +86,6 @@ const List = () => {
             >
                 Página anterior
             </Button>
-
             <h1>{page}</h1>
         </div>
     )
