@@ -90,14 +90,11 @@ const CardCharacters = ({ character, loading }) => {
 export default CardCharacters
 
 const Card = styled.li`
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     padding: 20px;
-    min-height: 210px;
+    flex-direction: column;
+    min-width: 210px;
     justify-content: space-between;
 `
