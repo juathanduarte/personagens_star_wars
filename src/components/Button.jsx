@@ -5,11 +5,10 @@ const Button = styled.button`
     border: 1px solid #ccc;
     border-radius: 4px;
     color: #333;
-    cursor: pointer;
-    font-size: 1rem;
     font-weight: 700;
     padding: 0.5rem 1rem;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 
     &:disabled {
         background-color: #eee;

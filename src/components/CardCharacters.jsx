@@ -67,7 +67,7 @@ const CardCharacters = ({ character, loading }) => {
         )
     return (
         <Card key={character.name}>
-            <h2>{character.name}</h2>
+            <Name>{character.name}</Name>
             <p>Altura: {character.height}</p>
             <p>Peso: {character.mass}</p>
             <p>Cor do cabelo: {character.hair_color}</p>
@@ -97,4 +97,9 @@ const Card = styled.li`
     flex-direction: column;
     min-width: 210px;
     justify-content: space-between;
+`
+
+const Name = styled.h2`
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 `

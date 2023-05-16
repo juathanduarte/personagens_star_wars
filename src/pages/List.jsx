@@ -74,18 +74,21 @@ const List = () => {
                           />
                       ))}
             </CharactersContainer>
-            <Button
-                onClick={handleNextPage}
-                disabled={!pageInfo.hasNext || loading}
-            >
-                Próxima página
-            </Button>
-            <Button
-                onClick={handlePreviousPage}
-                disabled={!pageInfo.hasPrevious || loading}
-            >
-                Página anterior
-            </Button>
+            <ButtonContainer>
+                <Button
+                    onClick={handlePreviousPage}
+                    disabled={!pageInfo.hasPrevious || loading}
+                >
+                    Página anterior
+                </Button>
+                <Button
+                    onClick={handleNextPage}
+                    disabled={!pageInfo.hasNext || loading}
+                    style={{ marginLeft: '10px' }}
+                >
+                    Próxima página
+                </Button>
+            </ButtonContainer>
             <h1>{page}</h1>
         </div>
     )
@@ -98,4 +101,11 @@ const CharactersContainer = styled.ul`
     gap: 20px;
     margin-inline: 20px;
     grid-template-columns: repeat(5, 1fr);
+`
+
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Defina a altura desejada para o container */
 `
