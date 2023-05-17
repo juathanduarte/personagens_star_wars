@@ -3,14 +3,25 @@ import { styled } from 'styled-components'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const CardCharacters = ({ character, loading }) => {
+const CardCharacters = ({ character, loading, films }) => {
     const convertHeight = (height) => {
-        if (height === 'unknown') {
-            return height
-        }
-
         const heightInMeters = parseInt(height) / 100
-        return heightInMeters.toFixed(2)
+        return heightInMeters.toFixed(2).replace('.', ',') + ' m'
+    }
+
+    const convertMass = (mass) => {
+        const massInKg = parseInt(mass)
+        return massInKg.toFixed(2).replace('.', ',') + ' kg'
+    }
+
+    const translateUrlToTitle = () => {
+        const filmsUrls = character.films
+        return filmsUrls
+            .map((url) => {
+                const filmTitle = films.find((film) => film.url === url)
+                return filmTitle.title
+            })
+            .join(', ')
     }
 
     if (loading)
@@ -74,30 +85,35 @@ const CardCharacters = ({ character, loading }) => {
                 />
             </Card>
         )
+    translateUrlToTitle()
+
     return (
         <Card key={character.name}>
             <Name>{character.name}</Name>
             <Specified>
-                <strong>Altura:</strong> {convertHeight(character.height)}
+                <p>Filmes</p> {translateUrlToTitle()}
             </Specified>
             <Specified>
-                <strong>Peso:</strong> {character.mass}
+                <p>Altura:</p> {convertHeight(character.height)}
             </Specified>
             <Specified>
-                <strong>Cor do cabelo:</strong> {character.hair_color}
+                <p>Peso:</p> {convertMass(character.mass)}
             </Specified>
             <Specified>
-                <strong>Etnia:</strong> {character.skin_color}
+                <p>Cor do cabelo:</p> {character.hair_color}
             </Specified>
             <Specified>
-                <strong>Cor dos olhos: </strong>
+                <p>Etnia:</p> {character.skin_color}
+            </Specified>
+            <Specified>
+                <p>Cor dos olhos: </p>
                 {character.eye_color}
             </Specified>
             <Specified>
-                <strong>Ano de nascimento:</strong> {character.birth_year}
+                <p>Ano de nascimento:</p> {character.birth_year}
             </Specified>
             <Specified>
-                <strong>Gênero:</strong> {character.gender}
+                <p>Gênero:</p> {character.gender}
             </Specified>
             {/* HOMEWORLD */}
             {/* FILMS
@@ -115,8 +131,9 @@ export default CardCharacters
 
 const Card = styled.li`
     display: flex;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: linear-gradient(135deg, #0e1765, #2a115c);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 20px;
     flex-direction: column;
     min-width: 210px;
@@ -124,14 +141,25 @@ const Card = styled.li`
 `
 
 const Name = styled.h2`
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ece4ef;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
+    margin-bottom: 16px;
 `
 
 const Specified = styled.p`
-    font-size: 1.2rem;
+    font-weight: 700;
+    font-size: 14px;
+    color: #d8cede;
+    margin-bottom: 12px;
 
-    strong {
-        font-weight: 700;
+    p {
+        font-size: 14px;
+        color: #9c83a7;
+        margin-bottom: 4px;
     }
 `

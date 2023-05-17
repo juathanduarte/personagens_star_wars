@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,500&display=swap');
 
   * {
     border: 0;
@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     font-size: 16px;
     font-weight: 400;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Sono', sans-serif;
 
     @media screen and (max-width: 400px) {
       font-size: 14px;
