@@ -48,28 +48,28 @@ const CardCharacters = ({ character, loading, films }) => {
                 />
                 <Skeleton
                     width={'75%'}
-                    height={25}
+                    height={30}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
                 <Skeleton
                     width={'45%'}
-                    height={16}
+                    height={22}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
                 <Skeleton
                     width={'65%'}
-                    height={16}
+                    height={22}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
                 <Skeleton
                     width={'35%'}
-                    height={16}
+                    height={22}
                     style={{
                         marginBottom: '5px',
                     }}
@@ -110,6 +110,7 @@ const Card = styled.li`
     padding: 20px;
     flex-direction: column;
     min-width: 210px;
+    min-height: 410px;
     justify-content: space-between;
 `
 

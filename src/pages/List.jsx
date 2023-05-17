@@ -56,10 +56,13 @@ const List = () => {
     useEffect(() => {
         const fetchFilms = async () => {
             try {
+                setLoading(true)
                 const reponse = await api.get(`/films/`)
                 setFilms(reponse.data.results)
             } catch (error) {
-                console.log('Erro ao buscar os dados', error)
+                console.log('Erro ao buscar os filmes', error)
+            } finally {
+                setLoading(false)
             }
         }
         fetchFilms()

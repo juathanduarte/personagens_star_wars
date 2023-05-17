@@ -6,6 +6,7 @@ const Input = styled.input`
     font-size: 16px;
     padding: 8px 16px;
     width: 50%;
+    height: 50px;
 
     ::placeholder {
         color: #2a115c;
