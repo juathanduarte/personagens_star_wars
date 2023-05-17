@@ -41,7 +41,7 @@ const CardCharacters = ({ character, loading, films }) => {
         }
     }
 
-    if (loading)
+    if (true)
         return (
             <Card>
                 <Skeleton
