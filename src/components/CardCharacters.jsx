@@ -4,6 +4,15 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const CardCharacters = ({ character, loading }) => {
+    const convertHeight = (height) => {
+        if (height === 'unknown') {
+            return height
+        }
+
+        const heightInMeters = parseInt(height) / 100
+        return heightInMeters.toFixed(2)
+    }
+
     if (loading)
         return (
             <Card>
@@ -68,13 +77,28 @@ const CardCharacters = ({ character, loading }) => {
     return (
         <Card key={character.name}>
             <Name>{character.name}</Name>
-            <p>Altura: {character.height}</p>
-            <p>Peso: {character.mass}</p>
-            <p>Cor do cabelo: {character.hair_color}</p>
-            <p>Etnia: {character.skin_color}</p>
-            <p>Cor dos olhos: {character.eye_color}</p>
-            <p>Ano de nascimento: {character.birth_year}</p>
-            <p>Gênero: {character.gender}</p>
+            <Specified>
+                <strong>Altura:</strong> {convertHeight(character.height)}
+            </Specified>
+            <Specified>
+                <strong>Peso:</strong> {character.mass}
+            </Specified>
+            <Specified>
+                <strong>Cor do cabelo:</strong> {character.hair_color}
+            </Specified>
+            <Specified>
+                <strong>Etnia:</strong> {character.skin_color}
+            </Specified>
+            <Specified>
+                <strong>Cor dos olhos: </strong>
+                {character.eye_color}
+            </Specified>
+            <Specified>
+                <strong>Ano de nascimento:</strong> {character.birth_year}
+            </Specified>
+            <Specified>
+                <strong>Gênero:</strong> {character.gender}
+            </Specified>
             {/* HOMEWORLD */}
             {/* FILMS
                         SPECIES
@@ -102,4 +126,12 @@ const Card = styled.li`
 const Name = styled.h2`
     font-size: 1.5rem;
     margin-bottom: 10px;
+`
+
+const Specified = styled.p`
+    font-size: 1.2rem;
+
+    strong {
+        font-weight: 700;
+    }
 `
