@@ -16,6 +16,11 @@ const CardCharacters = ({ character, loading, films }) => {
         return massInKg.toFixed(2).replace('.', ',') + ' kg'
     }
 
+    const birthVeritifcation = (birth) => {
+        if (birth === 'unknown') return 'Desconhecido'
+        return birth
+    }
+
     const translateUrlToTitle = () => {
         const filmsUrls = character.films
         return filmsUrls
@@ -91,7 +96,8 @@ const CardCharacters = ({ character, loading, films }) => {
                 <p>Peso:</p> {convertMass(character.mass)}
             </Specified>
             <Specified>
-                <p>Ano de nascimento:</p> {character.birth_year}
+                <p>Ano de nascimento:</p>{' '}
+                {birthVeritifcation(character.birth_year)}
             </Specified>
             <Specified>
                 <p>Gênero:</p> {convertGender(character.gender)}
@@ -126,7 +132,7 @@ const Name = styled.h2`
     min-height: 80px;
 `
 
-const Specified = styled.p`
+const Specified = styled.h2`
     font-weight: 700;
     font-size: 14px;
     color: #d8cede;
