@@ -41,41 +41,20 @@ const CardCharacters = ({ character, loading, films }) => {
             <Card>
                 <Skeleton
                     width={'95%'}
-                    height={16}
+                    height={40}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
                 <Skeleton
                     width={'75%'}
-                    height={16}
-                    style={{
-                        marginBottom: '5px',
-                    }}
-                />
-                <Skeleton
-                    width={'55%'}
-                    height={16}
+                    height={25}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
                 <Skeleton
                     width={'45%'}
-                    height={16}
-                    style={{
-                        marginBottom: '5px',
-                    }}
-                />
-                <Skeleton
-                    width={'85%'}
-                    height={16}
-                    style={{
-                        marginBottom: '5px',
-                    }}
-                />
-                <Skeleton
-                    width={'25%'}
                     height={16}
                     style={{
                         marginBottom: '5px',
