@@ -4,7 +4,7 @@ Este é um projeto React.js que utiliza a API SWAPI (https://swapi.dev/) para li
 
 <!-- <img align="right" src="./images/gif.gif" width="50%"/> -->
 
-<!-- - Link de acesso: https://cg-ray-marching.vercel.app/ -->
+- Link de acesso: https://personagens-star-wars.vercel.app/
 
 ## Recursos
 
@@ -19,13 +19,13 @@ A aplicação oferece os seguintes recursos:
 
 A aplicação é desenvolvida utilizando as seguintes tecnologias:
 
-- **React.js:** Biblioteca JavaScript para construção de interfaces de usuário
+- **React.js:** Biblioteca JavaScript para construção de interfaces de usuário.
 - **Axios:** Biblioteca para fazer chamadas HTTP para a API SWAPI.
 
 ## Pré-requisitos
 
-- Node.js
-- NPM (gerenciador de pacotes do Node.js)
+- Node.js.
+- NPM (gerenciador de pacotes do Node.js).
 
 ## Como utilizar
 
