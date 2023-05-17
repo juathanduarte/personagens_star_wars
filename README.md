@@ -20,7 +20,6 @@ A aplicação oferece os seguintes recursos:
 A aplicação é desenvolvida utilizando as seguintes tecnologias:
 
 - **React.js:** Biblioteca JavaScript para construção de interfaces de usuário
-  Axios - Biblioteca para fazer chamadas HTTP para a API SWAPI.
 - **Axios:** Biblioteca para fazer chamadas HTTP para a API SWAPI.
 
 ## Pré-requisitos
@@ -39,13 +38,13 @@ A aplicação é desenvolvida utilizando as seguintes tecnologias:
 
 ## Estrutura de Pastas
 
--- **src:** Arquivos da aplicação
----- **components:** Componentes React
----- **pages:** Páginas React
----- **services:** Serviços de acesso à API
----- **styles:** Estilos globais da aplicação
----- **utils:** Funções utilitárias
 
+- **src:** Arquivos da aplicação.
+- **components:** Componentes React.
+- **pages:** Páginas React.
+- **services:** Serviços de acesso à API.
+- **styles:** Estilos globais da aplicação.
+- **utils:** Funções utilitárias.
 
 ## Autor
 
