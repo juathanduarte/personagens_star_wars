@@ -10,6 +10,8 @@ const CardCharacters = ({ character, loading, films }) => {
     }
 
     const convertMass = (mass) => {
+        if (mass === 'unknown') return 'Desconhecido'
+
         const massInKg = parseInt(mass)
         return massInKg.toFixed(2).replace('.', ',') + ' kg'
     }
@@ -19,9 +21,19 @@ const CardCharacters = ({ character, loading, films }) => {
         return filmsUrls
             .map((url) => {
                 const filmTitle = films.find((film) => film.url === url)
-                return filmTitle.title
+                return filmTitle?.title || ''
             })
             .join(', ')
+    }
+
+    const convertGender = (gender) => {
+        if (gender === 'male') {
+            return 'Masculino'
+        } else if (gender === 'female') {
+            return 'Feminino'
+        } else {
+            return 'Desconhecido'
+        }
     }
 
     if (loading)
@@ -100,29 +112,11 @@ const CardCharacters = ({ character, loading, films }) => {
                 <p>Peso:</p> {convertMass(character.mass)}
             </Specified>
             <Specified>
-                <p>Cor do cabelo:</p> {character.hair_color}
-            </Specified>
-            <Specified>
-                <p>Etnia:</p> {character.skin_color}
-            </Specified>
-            <Specified>
-                <p>Cor dos olhos: </p>
-                {character.eye_color}
-            </Specified>
-            <Specified>
                 <p>Ano de nascimento:</p> {character.birth_year}
             </Specified>
             <Specified>
-                <p>Gênero:</p> {character.gender}
+                <p>Gênero:</p> {convertGender(character.gender)}
             </Specified>
-            {/* HOMEWORLD */}
-            {/* FILMS
-                        SPECIES
-                        VEHICLES
-                        STARSHIPS
-                        CREATED 
-                        EDITED 
-                        URL  */}
         </Card>
     )
 }
@@ -149,6 +143,7 @@ const Name = styled.h2`
     color: #ece4ef;
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
     margin-bottom: 16px;
+    min-height: 80px;
 `
 
 const Specified = styled.p`

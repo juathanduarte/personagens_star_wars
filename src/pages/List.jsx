@@ -67,14 +67,31 @@ const List = () => {
 
     return (
         <div>
-            <Input
-                placeholder="Pesquisar personagem"
-                value={searchCharacter}
-                onChange={(e) => {
-                    setSearchCharacter(e.target.value)
-                    setPage(1)
-                }}
-            />
+            <HeaderContainer>
+                <Input
+                    placeholder="Pesquisar personagem"
+                    value={searchCharacter}
+                    onChange={(e) => {
+                        setSearchCharacter(e.target.value)
+                        setPage(1)
+                    }}
+                />
+                <ButtonContainer>
+                    <Button
+                        onClick={handlePreviousPage}
+                        disabled={!pageInfo.hasPrevious || loading}
+                    >
+                        Página anterior
+                    </Button>
+                    <Button
+                        onClick={handleNextPage}
+                        disabled={!pageInfo.hasNext || loading}
+                        style={{ marginLeft: '10px' }}
+                    >
+                        Próxima página
+                    </Button>
+                </ButtonContainer>
+            </HeaderContainer>
 
             <CharactersContainer>
                 {loading
@@ -89,22 +106,6 @@ const List = () => {
                           />
                       ))}
             </CharactersContainer>
-            <ButtonContainer>
-                <Button
-                    onClick={handlePreviousPage}
-                    disabled={!pageInfo.hasPrevious || loading}
-                >
-                    Página anterior
-                </Button>
-                <Button
-                    onClick={handleNextPage}
-                    disabled={!pageInfo.hasNext || loading}
-                    style={{ marginLeft: '10px' }}
-                >
-                    Próxima página
-                </Button>
-            </ButtonContainer>
-            <h1>{page}</h1>
         </div>
     )
 }
@@ -117,10 +118,17 @@ const CharactersContainer = styled.ul`
     margin-inline: 20px;
     grid-template-columns: repeat(5, 1fr);
 `
+const HeaderContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px 0 20px;
+    height: 70px;
+`
 
 const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Defina a altura desejada para o container */
+    width: 50%;
 `
