@@ -117,13 +117,35 @@ const CharactersContainer = styled.ul`
     gap: 20px;
     margin-inline: 20px;
     grid-template-columns: repeat(5, 1fr);
+
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+        grid-template-columns: 1fr;
+    }
 `
+
 const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 20px 0 20px;
     height: 70px;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        height: auto;
+    }
 `
 
 const ButtonContainer = styled.div`
@@ -131,4 +153,9 @@ const ButtonContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 50%;
+
+    @media (max-width: 576px) {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 `

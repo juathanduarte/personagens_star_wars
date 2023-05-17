@@ -18,6 +18,23 @@ const Button = styled.button`
         border-color: #adadad;
         cursor: not-allowed;
     }
+
+    @media (max-width: 1200px) {
+        width: 60%;
+    }
+
+    @media (max-width: 992px) {
+        width: 70%;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+
+    @media (max-width: 576px) {
+        margin-top: 10px;
+        width: 90%;
+    }
 `
 
 export default Button
