@@ -81,7 +81,7 @@ const CardCharacters = ({ character, loading, films }) => {
                 />
             </Card>
         )
-    translateUrlToTitle()
+    // translateUrlToTitle()
 
     return (
         <Card key={character.name}>
@@ -111,12 +111,11 @@ export default CardCharacters
 const Card = styled.li`
     display: flex;
     background: linear-gradient(135deg, #0e1765, #2a115c);
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    border-radius: 16px;
+    padding: 16px;
     flex-direction: column;
     min-width: 210px;
-    min-height: 410px;
+    min-height: 380px;
     justify-content: space-between;
 `
 

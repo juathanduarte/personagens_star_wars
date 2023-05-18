@@ -29,8 +29,8 @@ const Button = styled.button`
     }
 
     @media (max-width: 576px) {
-        margin-top: 8px;
-        width: 90%;
+        margin: 16px 0 0 0;
+        width: 100%;
     }
 `
 
