@@ -1,18 +1,23 @@
 import React from 'react'
-import { styled } from 'styled-components'
+import { styled, keyframes } from 'styled-components'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const CardCharacters = ({ character, loading, films }) => {
     const convertHeight = (height) => {
-        const heightInMeters = parseInt(height) / 100
-        return heightInMeters.toFixed(2).replace('.', ',') + ' m'
+        const heightValue = parseInt(height)
+        return `${
+            heightValue > 100
+                ? (heightValue / 100).toFixed(2).replace('.', ',') + ' m'
+                : heightValue + ' cm'
+        }`
     }
 
     const convertMass = (mass) => {
         if (mass === 'unknown') return 'Desconhecido'
 
         const massInKg = parseInt(mass)
+
         return massInKg.toFixed(2).replace('.', ',') + ' kg'
     }
 
@@ -23,6 +28,19 @@ const CardCharacters = ({ character, loading, films }) => {
 
     const translateUrlToTitle = () => {
         const filmsUrls = character.films
+
+        if (loading || films.length === 0) {
+            return (
+                <PulsatingSkeleton
+                    width={'75%'}
+                    height={30}
+                    style={{
+                        marginBottom: '5px',
+                    }}
+                />
+            )
+        }
+
         return filmsUrls
             .map((url) => {
                 const filmTitle = films.find((film) => film.url === url)
@@ -44,35 +62,35 @@ const CardCharacters = ({ character, loading, films }) => {
     if (loading)
         return (
             <Card>
-                <Skeleton
+                <PulsatingSkeleton
                     width={'95%'}
                     height={40}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
-                <Skeleton
+                <PulsatingSkeleton
                     width={'75%'}
                     height={30}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
-                <Skeleton
+                <PulsatingSkeleton
                     width={'45%'}
                     height={22}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
-                <Skeleton
+                <PulsatingSkeleton
                     width={'65%'}
                     height={22}
                     style={{
                         marginBottom: '5px',
                     }}
                 />
-                <Skeleton
+                <PulsatingSkeleton
                     width={'35%'}
                     height={22}
                     style={{
@@ -81,7 +99,6 @@ const CardCharacters = ({ character, loading, films }) => {
                 />
             </Card>
         )
-    // translateUrlToTitle()
 
     return (
         <Card key={character.name}>
@@ -142,4 +159,20 @@ const Specified = styled.h2`
         color: #9c83a7;
         margin-bottom: 4px;
     }
+`
+
+const pulseAnimation = keyframes`
+        0% {
+            opacity: 1;
+            }
+        50% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
+        }
+    `
+
+const PulsatingSkeleton = styled(Skeleton)`
+    animation: ${pulseAnimation} 1.5s ease-in-out infinite;
 `
