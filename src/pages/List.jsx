@@ -4,7 +4,9 @@ import { styled } from 'styled-components'
 import CardCharacters from '../components/CardCharacters'
 import Button from '../components/Button'
 import Input from '../components/Input'
+
 import { useDebounce } from '../utils/hooks'
+
 import { getAllCharacters } from '../services/characters'
 import { getAllFilms } from '../services/films'
 
