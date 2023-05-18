@@ -2,7 +2,7 @@
 
 Este é um projeto React.js que utiliza a API SWAPI (https://swapi.dev/) para listar os personagens de Star Wars. A interface construída permite visualizar os personagens, filtrar pelo nome e navegar entre as páginas.
 
-<!-- <img align="right" src="./images/gif.gif" width="50%"/> -->
+<img align="right" src="./images/demonstration.gif" width="50%"/>
 
 - Link de acesso: https://personagens-star-wars.vercel.app/
 
