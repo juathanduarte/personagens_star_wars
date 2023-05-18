@@ -42,7 +42,8 @@ A aplicação é desenvolvida utilizando as seguintes tecnologias:
 - **src:** Arquivos da aplicação.
 - **components:** Componentes React.
 - **pages:** Páginas React.
-- **services:** Serviços de acesso à API.
+- **providers:** Serviços de acesso à API.
+- **services:** Getters de dados.
 - **styles:** Estilos globais da aplicação.
 - **utils:** Funções utilitárias.
 
