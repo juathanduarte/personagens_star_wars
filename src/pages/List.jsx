@@ -30,6 +30,19 @@ const List = () => {
         setPage(page - 1)
     }
 
+    function validateInputValue(inputValue) {
+        const regex = /[^\w\s\u002D\u00C0-\u017F]/gu
+        const validValue = inputValue.replace(regex, '')
+        return validValue
+    }
+
+    function handleSearchCharacterChange(e) {
+        const inputValue = e.target.value
+        const validValue = validateInputValue(inputValue)
+        setSearchCharacter(validValue)
+        setPage(1)
+    }
+
     useEffect(() => {
         const fetchCharacters = async () => {
             setLoading(true)
@@ -60,10 +73,7 @@ const List = () => {
                 <Input
                     placeholder="Pesquisar personagem"
                     value={searchCharacter}
-                    onChange={(e) => {
-                        setSearchCharacter(e.target.value)
-                        setPage(1)
-                    }}
+                    onChange={handleSearchCharacterChange}
                 />
                 <ButtonContainer>
                     <Button
@@ -84,17 +94,23 @@ const List = () => {
             </HeaderContainer>
 
             <CharactersContainer>
-                {loading
-                    ? fakeDataSkeleton.map((item, index) => (
-                          <CardCharacters key={index} loading={true} />
-                      ))
-                    : charactersLists.map((character) => (
-                          <CardCharacters
-                              character={character}
-                              key={character.name}
-                              films={films}
-                          />
-                      ))}
+                {loading ? (
+                    fakeDataSkeleton.map((item, index) => (
+                        <CardCharacters key={index} loading={true} />
+                    ))
+                ) : charactersLists.length ? (
+                    charactersLists.map((character) => (
+                        <CardCharacters
+                            character={character}
+                            key={character.name}
+                            films={films}
+                        />
+                    ))
+                ) : (
+                    <MessageContainer>
+                        Não existe personagem com este nome 😞
+                    </MessageContainer>
+                )}
             </CharactersContainer>
         </div>
     )
@@ -102,11 +118,24 @@ const List = () => {
 
 export default List
 
+const MessageContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: #2a115c;
+    font-weight: 700;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 16px;
+`
+
 const CharactersContainer = styled.ul`
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(5, 1fr);
     padding: 0 16px;
+
     @media (max-width: 1200px) {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -134,6 +163,7 @@ const HeaderContainer = styled.div`
     @media (max-width: 576px) {
         flex-direction: column;
         height: auto;
+        margin: 16px;
     }
 `
 
@@ -145,6 +175,5 @@ const ButtonContainer = styled.div`
 
     @media (max-width: 576px) {
         width: 100%;
-        margin-bottom: 10px;
     }
 `
