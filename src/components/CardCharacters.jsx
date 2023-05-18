@@ -131,9 +131,46 @@ const Card = styled.li`
     border-radius: 16px;
     padding: 16px;
     flex-direction: column;
-    min-width: 210px;
-    min-height: 380px;
+    width: 350px;
+    height: 400px;
+    min-width: 350px;
+    min-height: 400px;
     justify-content: space-between;
+
+    @media (max-width: 1669px) {
+        width: calc(100% - 16px);
+        min-width: calc(100% - 16px);
+        height: 400px;
+        min-height: 100%;
+    }
+
+    @media (max-width: 1200px) {
+        width: calc(100% - 16px);
+        min-width: calc(100% - 16px);
+        height: 400px;
+        min-height: 100%;
+    }
+
+    @media (max-width: 992px) {
+        width: calc(100% - 16px);
+        min-width: calc(100% - 16px);
+        height: 400px;
+        min-height: 100%;
+    }
+
+    @media (max-width: 769px) {
+        width: calc(100% - 16px);
+        min-width: calc(100% - 16px);
+        height: 400px;
+        min-height: 100%;
+    }
+
+    @media (max-width: 576px) {
+        width: calc(100% - 16px);
+        min-width: calc(100% - 16px);
+        height: 400px;
+        min-height: 100%;
+    }
 `
 
 const Name = styled.h2`
@@ -144,8 +181,7 @@ const Name = styled.h2`
     text-transform: uppercase;
     color: #ece4ef;
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.4);
-    margin-bottom: 16px;
-    min-height: 80px;
+    min-height: 82px;
 `
 
 const Specified = styled.h2`

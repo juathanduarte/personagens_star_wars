@@ -12,10 +12,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: 400;
     font-family: 'Sono', sans-serif;
-
-    @media screen and (max-width: 400px) {
-      font-size: 14px;
-    }
   }
 
 `

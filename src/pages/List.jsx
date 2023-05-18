@@ -79,14 +79,14 @@ const List = () => {
                     <Button
                         onClick={handlePreviousPage}
                         disabled={!pageInfo.hasPrevious || loading}
-                        style={{ marginRight: '5px' }}
+                        style={{ marginRight: '4px' }}
                     >
                         Página anterior
                     </Button>
                     <Button
                         onClick={handleNextPage}
                         disabled={!pageInfo.hasNext || loading}
-                        style={{ marginLeft: '5px' }}
+                        style={{ marginLeft: '4px' }}
                     >
                         Próxima página
                     </Button>
@@ -118,6 +118,28 @@ const List = () => {
 
 export default List
 
+const HeaderContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 16px;
+
+    @media (max-width: 576px) {
+        flex-direction: column;
+        height: auto;
+        margin: 16px;
+    }
+`
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    @media (max-width: 576px) {
+        width: 100%;
+    }
+`
+
 const MessageContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -132,9 +154,9 @@ const MessageContainer = styled.div`
 
 const CharactersContainer = styled.ul`
     display: grid;
-    gap: 10px;
     grid-template-columns: repeat(5, 1fr);
-    padding: 0 16px;
+    gap: 16px;
+    margin: 0 0 16px 16px;
 
     @media (max-width: 1200px) {
         grid-template-columns: repeat(4, 1fr);
@@ -144,36 +166,11 @@ const CharactersContainer = styled.ul`
         grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
         grid-template-columns: repeat(2, 1fr);
     }
 
     @media (max-width: 576px) {
         grid-template-columns: 1fr;
-    }
-`
-
-const HeaderContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 16px;
-    height: 55px;
-
-    @media (max-width: 576px) {
-        flex-direction: column;
-        height: auto;
-        margin: 16px;
-    }
-`
-
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-
-    @media (max-width: 576px) {
-        width: 100%;
     }
 `

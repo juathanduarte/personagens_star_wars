@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 
 const Button = styled.button`
     background: linear-gradient(135deg, #0e1765, #2a115c);
-    border-radius: 10px;
+    border-radius: 16px;
     color: #ccc;
     font-weight: 700;
     width: 50%;
@@ -24,7 +24,7 @@ const Button = styled.button`
         width: 70%;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
         width: 100%;
     }
 

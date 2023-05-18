@@ -19,7 +19,7 @@ const Input = styled.input`
         width: 70%;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
         width: 100%;
     }
 
