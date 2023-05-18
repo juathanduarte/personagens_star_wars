@@ -43,6 +43,7 @@ const List = () => {
         const validValue = validateInputValue(inputValue)
         setSearchCharacter(validValue)
         setPage(1)
+        setLoading(true)
     }
 
     useEffect(() => {
@@ -96,23 +97,24 @@ const List = () => {
             </HeaderContainer>
 
             <CharactersContainer>
-                {loading ? (
-                    fakeDataSkeleton.map((item, index) => (
-                        <CardCharacters key={index} loading={true} />
-                    ))
-                ) : charactersLists.length ? (
-                    charactersLists.map((character) => (
-                        <CardCharacters
-                            character={character}
-                            key={character.name}
-                            films={films}
-                        />
-                    ))
-                ) : (
-                    <MessageContainer>
-                        Não existe personagem com este nome 😞
-                    </MessageContainer>
-                )}
+                {!loading &&
+                    charactersLists.length === 0 &&
+                    searchCharacter && (
+                        <MessageContainer>
+                            Não existe personagem com este nome 😞
+                        </MessageContainer>
+                    )}
+                {loading
+                    ? fakeDataSkeleton.map((item, index) => (
+                          <CardCharacters key={index} loading={true} />
+                      ))
+                    : charactersLists.map((character) => (
+                          <CardCharacters
+                              key={character.name}
+                              character={character}
+                              films={films}
+                          />
+                      ))}
             </CharactersContainer>
         </div>
     )
@@ -158,6 +160,7 @@ const CharactersContainer = styled.ul`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 16px;
+    column-gap: 0;
     margin: 0 0 16px 16px;
 
     @media (max-width: 1200px) {
