@@ -136,7 +136,7 @@ const Specified = styled.h2`
     font-weight: 700;
     font-size: 14px;
     color: #d8cede;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 
     p {
         font-size: 14px;

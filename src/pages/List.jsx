@@ -83,14 +83,14 @@ const List = () => {
                     <Button
                         onClick={handlePreviousPage}
                         disabled={!pageInfo.hasPrevious || loading}
-                        style={{ marginRight: '5px' }}
+                        style={{ marginRight: '4px' }}
                     >
                         Página anterior
                     </Button>
                     <Button
                         onClick={handleNextPage}
                         disabled={!pageInfo.hasNext || loading}
-                        style={{ marginLeft: '5px' }}
+                        style={{ marginLeft: '4px' }}
                     >
                         Próxima página
                     </Button>
@@ -120,7 +120,7 @@ const CharactersContainer = styled.ul`
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(5, 1fr);
-    padding: 0 10px;
+    padding: 0 16px;
     @media (max-width: 1200px) {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -142,7 +142,7 @@ const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
+    margin: 16px;
     height: 55px;
 
     @media (max-width: 576px) {
@@ -159,6 +159,6 @@ const ButtonContainer = styled.div`
 
     @media (max-width: 576px) {
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 `

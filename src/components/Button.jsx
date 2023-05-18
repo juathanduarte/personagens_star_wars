@@ -7,7 +7,7 @@ const Button = styled.button`
     font-weight: 700;
     width: 50%;
     height: 50px;
-    margin-left: 10px;
+    margin-left: 8px;
     cursor: pointer;
 
     &:disabled {
@@ -29,7 +29,7 @@ const Button = styled.button`
     }
 
     @media (max-width: 576px) {
-        margin-top: 10px;
+        margin-top: 8px;
         width: 90%;
     }
 `
