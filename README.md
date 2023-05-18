@@ -38,7 +38,7 @@ A aplicação é desenvolvida utilizando as seguintes tecnologias:
 
 ## Estrutura de Pastas
 
-
+- **images:** Imagens utilizadas no README.md.
 - **src:** Arquivos da aplicação.
 - **components:** Componentes React.
 - **pages:** Páginas React.
