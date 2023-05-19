@@ -22,6 +22,7 @@ A aplicação é desenvolvida utilizando as seguintes tecnologias:
 - **React.js:** Biblioteca JavaScript para construção de interfaces de usuário.
 - **Axios:** Biblioteca para fazer chamadas HTTP para a API SWAPI.
 - **Styled Components:** Biblioteca para estilização de componentes React.
+- **Skeleton:** Biblioteca para criar animações de carregamento.
 
 ## Pré-requisitos
 
